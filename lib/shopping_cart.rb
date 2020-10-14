@@ -26,4 +26,13 @@ class ShoppingCart
     @details
   end
 
+  def total_number_of_products
+    @products.sum do |product|
+      product.quantity
+    end
+  end
+
+  def is_full?
+    total_number_of_products == capacity
+  end
 end
