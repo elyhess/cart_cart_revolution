@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/product'
-require '../lib/shopping_cart'
+require './lib/product'
+require './lib/shopping_cart'
 class ShoppingCartTest < Minitest::Test
 
   def test_it_exists_and_has_attributes
@@ -31,6 +31,7 @@ class ShoppingCartTest < Minitest::Test
 
     expected = {name: "King Soopers", capacity: 30}
     result = cart.details
+    require "pry"; binding.pry
 
     assert_equal expected, result
   end
