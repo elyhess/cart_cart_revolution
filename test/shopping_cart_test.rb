@@ -31,7 +31,6 @@ class ShoppingCartTest < Minitest::Test
 
     expected = {name: "King Soopers", capacity: 30}
     result = cart.details
-    require "pry"; binding.pry
 
     assert_equal expected, result
   end
