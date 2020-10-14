@@ -1,17 +1,29 @@
 class ShoppingCart
-  attr_reader :name, :capacity, :products  # => nil
+  attr_reader :name, :capacity, :products
 
   def initialize(name, capacity)
-    @name = name                  # => "King Soopers"
-    @capacity = capacity          # => "30items"
+    @name = name
+    @capacity = capacity
     @products = []
-  end                             # => :initialize
+    @details = {name: nil, capacity: 0}
+  end
+
+  def name
+    @name
+  end
 
   def capacity
-    @capacity[0..1].to_i  # => 30
-  end                     # => :capacity
-end                       # => :capacity
+    @capacity[0..1].to_i
+  end
 
+  def add_product(product)
+    @products << product
+  end
 
-cart = ShoppingCart.new("King Soopers", "30items")  # => #<ShoppingCart:0x00007f9b8d122c78 @name="King Soopers", @capacity="30items", @products=[]>
-cart.capacity                                       # => 30
+  def details
+    @details[:name] = name
+    @details[:capacity] = capacity
+    @details
+  end
+
+end
