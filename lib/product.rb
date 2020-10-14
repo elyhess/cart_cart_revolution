@@ -1,19 +1,20 @@
 class Product
-  attr_reader :category, :name, :quantity, :unit_price  # => nil
+  attr_reader :category, :name, :quantity, :unit_price
 
   def initialize(category, name, unit_price, quantity)
-    @category = category                                # => :paper,         :meat
-    @name = name                                        # => "toilet paper", "chicken"
-    @unit_price = unit_price                            # => 3.7,            4.5
-    @quantity = quantity                                # => "10",           "2"
-  end                                                   # => :initialize
+    @category = category
+    @name = name
+    @unit_price = unit_price
+    @quantity = quantity
+  end
+
 
   def quantity
-    @quantity.to_i  # => 10
-  end               # => :quantity
+    @quantity.to_i
+  end
 
   def total_price
     @quantity.to_i * @unit_price
-  end                             # => :total_price
+  end
 
-end  # => :total_price
+end
