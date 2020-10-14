@@ -62,6 +62,32 @@ class ShoppingCartTest < Minitest::Test
     assert_equal 2, cart.products_by_category(:paper).count
   end
 
+  def test_it_sorts_by_quantity
+    cart = ShoppingCart.new("King Soopers", "30items")
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+
+    cart.add_product(product1)
+    cart.add_product(product2)
+    cart.add_product(product3)
+
+    assert_equal 1, cart.sorted_by_quantity.first.quantity
+  end
+
+  def test_it_has_breakdown
+    cart = ShoppingCart.new("King Soopers", "30items")
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    product3 = Product.new(:paper, 'tissue paper', 1.25, '1')
+
+    cart.add_product(product1)
+    cart.add_product(product2)
+    cart.add_product(product3)
+    assert_instance_of Hash, cart.product_breakdown
+    assert_equal [:paper, :meat], cart.product_breakdown.keys
+  end
+
 
 
 end

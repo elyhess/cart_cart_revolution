@@ -44,7 +44,18 @@ class ShoppingCart
       end
     end
   end
+
+  def sorted_by_quantity
+    sorted_by_quantity = products.sort_by do |product|
+      product.quantity.to_i
+    end
+  end
+
+  def product_breakdown
+    breakdown = Hash.new {|hash, key| hash[key] = []}
+    sorted_by_quantity.each do |product|
+      breakdown[product.category.to_sym] << product
+    end
+    breakdown
+  end
 end
-
-
-#
