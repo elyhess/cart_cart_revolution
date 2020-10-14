@@ -35,4 +35,16 @@ class ShoppingCart
   def is_full?
     total_number_of_products == capacity
   end
+
+  def products_by_category(category)
+    by_category = []
+    @products.select do |product|
+      if category == product.category
+        by_category << product
+      end
+    end
+  end
 end
+
+
+#
