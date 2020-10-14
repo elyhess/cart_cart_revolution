@@ -5,7 +5,7 @@ class ShoppingCart
     @name = name
     @capacity = capacity
     @products = []
-    @details = {name: nil, capacity: 0}
+    @details = Hash.new
   end
 
   def name
